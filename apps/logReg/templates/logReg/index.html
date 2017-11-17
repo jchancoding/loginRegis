@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login or Register</title>
+      {% load static %}
+    <link rel="stylesheet" href="{% static 'logReg/css/master.css' %}">
+  </head>
+  <body>
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <h1>Registration</h1>
+    <form class="registration" action="/registration" method="post">
+      {% csrf_token %}
+      First Name: <input type="text" name="f_name" value="">
+      Last Name: <input type="text" name="l_name" value="">
+      Email: <input type="text" name="email" value="">
+      Password: <input type="password" name="pw1" value="">
+      Confirm Password: <input type="password" name="pw2" value="">
+      <input type="submit" name="Register" value="Register">
+    </form>
+
+    <h1>Login</h1>
+    <form class="Login" action="/login" method="post">
+      {% csrf_token %}
+      Email: <input type="text" name="email" value="">
+      Password: <input type="password" name="pw" value="">
+      <input type="submit" name="Login" value="Login">
+    </form>
+
+  </body>
+</html>

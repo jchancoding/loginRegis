@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Success</title>
+  </head>
+  <body>
+
+    <h1>Success! Welcome, {{ f_name }}</h1>
+    <p>Successfully registered (or logged in)!</p>
+
+    <form class="Delete" action="/delete" method="post">
+      {% csrf_token %}
+      <input type="submit" name="Delete" value="Delete yourself">
+    </form>
+
+  </body>
+</html>
